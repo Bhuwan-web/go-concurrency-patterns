@@ -1,0 +1,56 @@
+Write Goroutine 1 : set value 2
+Write Goroutine 4 : set value 5
+Write Goroutine 3 : set value 4
+Write Goroutine 0 : set value 1
+Read Goroutine 0: iteration 0 : 
+Read Goroutine 0: iteration 1 : value:1
+Write Goroutine 2 : set value 3
+Read Goroutine 2: iteration 0 : 
+Read Goroutine 2: iteration 1 : value:3
+Read Goroutine 2: iteration 2 : value:3
+Read Goroutine 2: iteration 3 : value:3
+Read Goroutine 2: iteration 4 : value:3
+Read Goroutine 2: iteration 5 : value:3
+Read Goroutine 2: iteration 6 : value:3
+Read Goroutine 2: iteration 7 : value:3
+Read Goroutine 2: iteration 8 : value:3
+Read Goroutine 2: iteration 9 : value:3
+Read Goroutine 3: iteration 0 : 
+Read Goroutine 3: iteration 1 : value:3
+Read Goroutine 3: iteration 2 : value:3
+Read Goroutine 3: iteration 3 : value:3
+Read Goroutine 3: iteration 4 : value:3
+Read Goroutine 3: iteration 5 : value:3
+Read Goroutine 3: iteration 6 : value:3
+Read Goroutine 3: iteration 7 : value:3
+Read Goroutine 3: iteration 8 : value:3
+Read Goroutine 1: iteration 0 : 
+Read Goroutine 1: iteration 1 : value:3
+Read Goroutine 1: iteration 2 : value:3
+Read Goroutine 1: iteration 3 : value:3
+Read Goroutine 1: iteration 4 : value:3
+Read Goroutine 1: iteration 5 : value:3
+Read Goroutine 1: iteration 6 : value:3
+Read Goroutine 1: iteration 7 : value:3
+Read Goroutine 1: iteration 8 : value:3
+Read Goroutine 1: iteration 9 : value:3
+Read Goroutine 0: iteration 2 : value:1
+Read Goroutine 0: iteration 3 : value:3
+Read Goroutine 0: iteration 4 : value:3
+Read Goroutine 0: iteration 5 : value:3
+Read Goroutine 0: iteration 6 : value:3
+Read Goroutine 0: iteration 7 : value:3
+Read Goroutine 0: iteration 8 : value:3
+Read Goroutine 3: iteration 9 : value:3
+Read Goroutine 0: iteration 9 : value:3
+Read Goroutine 4: iteration 0 : 
+Read Goroutine 4: iteration 1 : value:3
+Read Goroutine 4: iteration 2 : value:3
+Read Goroutine 4: iteration 3 : value:3
+Read Goroutine 4: iteration 4 : value:3
+Read Goroutine 4: iteration 5 : value:3
+Read Goroutine 4: iteration 6 : value:3
+Read Goroutine 4: iteration 7 : value:3
+Read Goroutine 4: iteration 8 : value:3
+Read Goroutine 4: iteration 9 : value:3
+cache count:  1

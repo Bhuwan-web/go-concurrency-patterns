@@ -3,6 +3,7 @@ package mem_sync
 import (
 	"fmt"
 	"sync"
+	"time"
 )
 
 type Counter struct {
@@ -41,4 +42,59 @@ func DisplayMemorySync() {
 		variation_map[val]++
 	}
 	fmt.Println(variation_map)
+}
+
+type Cache struct {
+	mu    sync.RWMutex
+	store map[string]string
+}
+
+func NewCache() *Cache {
+	return &Cache{
+		store: make(map[string]string),
+	}
+}
+func (c *Cache) Get(key string) (string, bool) {
+	c.mu.RLock()
+	defer c.mu.RUnlock()
+	// c.mu.Lock()
+	// defer c.mu.Unlock()
+	val, ok := c.store[key]
+	return val, ok
+}
+func (c *Cache) Set(key, value string) {
+	c.mu.Lock()
+	defer c.mu.Unlock()
+	c.store[key] = value
+}
+func (c *Cache) Delete(key string) {
+	c.mu.Lock()
+	defer c.mu.Unlock()
+	delete(c.store, key)
+}
+func (c *Cache) Count() int {
+	c.mu.RLock()
+	defer c.mu.RUnlock()
+	return len(c.store)
+}
+func DisplayCacheSync() {
+	cache := NewCache()
+	for i := range 5 {
+		go func() {
+			fmt.Printf("Write Goroutine %d : set value %d\n", i, i+1)
+			cache.Set("key", fmt.Sprintf("value:%d", i+1))
+		}()
+	}
+
+	for i := range 5 {
+		go func() {
+			for j := range 10 {
+				value, _ := cache.Get("key")
+				fmt.Printf("Read Goroutine %d: iteration %d : %s\n", i, j, value)
+			}
+			time.Sleep(time.Second)
+		}()
+	}
+	time.Sleep(2 * time.Second)
+	fmt.Println("cache count: ", cache.Count())
 }
