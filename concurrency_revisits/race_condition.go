@@ -12,8 +12,8 @@ type Counter struct {
 }
 
 func (c *Counter) Increment() {
-	// c.mu.Lock()
-	// defer c.mu.Unlock()
+	c.mu.Lock()
+	defer c.mu.Unlock()
 
 	// here if we remove the mutex, more than 1 goroutine can get the same value and increment it, leading to data race
 
@@ -29,8 +29,8 @@ type SafeDeduct struct {
 }
 
 func (sd *SafeDeduct) Deduct(deduct int) {
-	// sd.mu.Lock()
-	// defer sd.mu.Unlock()
+	sd.mu.Lock()
+	defer sd.mu.Unlock()
 	if sd.balance >= deduct {
 		// add intentional delay to allow threads to pick another goroutine to demonstrate race condition
 		time.Sleep(time.Microsecond)
