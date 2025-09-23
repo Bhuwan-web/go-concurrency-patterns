@@ -12,5 +12,10 @@ func main() {
 	// concurrencyrevisits.DisplayRaceCondition()
 	// concurrencyrevisits.DisplayDataRace()
 	// concurrencyrevisits.DisplayBroadcastingCondition()
-	concurrencyrevisits.PoolReadmeFile("./README.md")
+	// concurrencyrevisits.PoolReadmeFile("./README.md")
+	// concurrencyrevisits.DisplaySimpleChannel()
+	// concurrencyrevisits.DisplayChannelWithClose()
+	// concurrencyrevisits.ScholarshipDistribution()
+	// concurrencyrevisits.DisplayMultiSenderChannelStream()
+	concurrencyrevisits.DisplaySelectingSimultaneously()
 }
