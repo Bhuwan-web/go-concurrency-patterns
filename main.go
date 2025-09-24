@@ -1,6 +1,8 @@
 package main
 
-import concurrencyrevisits "githhub.com/bhuwan-web/learn-concurrency/concurrency_revisits"
+import (
+	"githhub.com/bhuwan-web/learn-concurrency/patterns"
+)
 
 // learning go concurrency in detail
 func main() {
@@ -17,5 +19,8 @@ func main() {
 	// concurrencyrevisits.DisplayChannelWithClose()
 	// concurrencyrevisits.ScholarshipDistribution()
 	// concurrencyrevisits.DisplayMultiSenderChannelStream()
-	concurrencyrevisits.DisplaySelectingSimultaneously()
+	// concurrencyrevisits.DisplaySelectingSimultaneously()
+	// patterns.DisplayLexicalConfinement()
+	// patterns.DisplayAdHocConfinement()
+	patterns.DisplayForSelectWithChannel()
 }
