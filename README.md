@@ -26,6 +26,9 @@ learn-concurrency/
 │   └── wait_groups.go
 ├── race/                        # Race condition demonstrations
 │   └── race.go
+├── patterns/                    # Concurrency patterns and idioms
+│   ├── confinement.go           # Ad hoc vs lexical confinement
+│   └── for_select.go            # for-select loops, default cases, signaling with done
 └── README.md                    # This file
 ```
 
@@ -123,6 +126,20 @@ learn-concurrency/
 -   Basic pool demonstration creating and reusing instances
 -   File reading using a pool of 1KB buffers to minimize allocations while streaming a file
 
+### 8. Concurrency Patterns: Confinement and For-Select (`patterns/`)
+
+-   **Purpose**: Demonstrate safe ownership and non-blocking loop patterns
+-   **Key Concepts**:
+    -   Ad hoc confinement by convention vs lexical confinement by type/ownership
+    -   Returning read-only channels to enforce confinement
+    -   `for { select { default: ... } }` loops and the role of `default`
+    -   Using a `done` channel to signal completion and exit loops
+
+**What it does:**
+
+-   Streams numbers from a goroutine using both ad hoc and lexically confined channels
+-   Shows a spinning for-select with `default`, and a channel-triggered exit with `done`
+
 ## 🏃‍♂️ Running the Examples
 
 ```bash
@@ -165,6 +182,12 @@ concurrencyrevisits.DisplaySelectingSimultaneously()
 // sync.Pool
 concurrencyrevisits.DisplayPoolingConcept()
 concurrencyrevisits.PoolReadmeFile("./README.md")
+
+// Concurrency patterns
+patterns.DisplayAdHocConfinement()
+patterns.DisplayLexicalConfinement()
+patterns.DisplayForSelect()
+patterns.DisplayForSelectWithChannel()
 ```
 
 ## 📚 Learning Outcomes
@@ -181,6 +204,8 @@ After exploring this project, you'll understand:
 -   ✅ Using `select` to multiplex channel operations and its fairness behavior
 -   ✅ Using `sync.Cond` for signaling/backpressure and broadcasting events
 -   ✅ Reducing allocations with `sync.Pool` and pooled buffers for I/O
+-   ✅ Confinement patterns: when to use ad hoc vs lexical confinement (read-only channels)
+-   ✅ For-select patterns: using `default` for non-blocking loops and signaling completion with a `done` channel
 
 ## 🔮 Planned Additions
 
