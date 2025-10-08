@@ -50,3 +50,26 @@ func DisplayOrChannelPattern() {
 	value := or(runAfter(3*time.Second), runAfter(4*time.Second))
 	<-value
 }
+func Bhaat() <-chan interface{} {
+	c := make(chan interface{})
+	go func() {
+		defer close(c)
+		time.Sleep(3 * time.Second)
+		fmt.Println("Bhaat khane")
+	}()
+	return c
+}
+func Roti() <-chan interface{} {
+	c := make(chan interface{})
+	go func() {
+		defer close(c)
+		time.Sleep(4 * time.Second)
+		fmt.Println("Roti khane")
+	}()
+	return c
+}
+func KhanaKhane() {
+	// if bhaat is ready first, it will print bhaat khane and roti khane will not be printed
+	// if roti is ready first, it will print roti khane and bhaat khane will not be printed
+	<-or(Bhaat(), Roti())
+}
