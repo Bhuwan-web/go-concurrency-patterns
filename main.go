@@ -22,5 +22,7 @@ func main() {
 	// concurrencyrevisits.DisplaySelectingSimultaneously()
 	// patterns.DisplayLexicalConfinement()
 	// patterns.DisplayAdHocConfinement()
-	patterns.DisplayForSelectWithChannel()
+	// patterns.DisplayForSelectWithChannel()
+	// patterns.DisplayGoroutineLeak()
+	patterns.DisplayPreventingLeak()
 }
