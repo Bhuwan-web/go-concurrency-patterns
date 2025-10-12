@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"githhub.com/bhuwan-web/learn-concurrency/patterns"
+)
 
 // learning go concurrency in detail
 func main() {
@@ -24,6 +26,5 @@ func main() {
 	// patterns.DisplayGoroutineLeak()
 	// patterns.DisplayPreventingLeak()
 	// patterns.DisplayOrChannelPattern()
-	val := []int{1, 2, 3, 4, 5}
-	fmt.Printf("%v\n", val[5:])
+	patterns.DisplayExceptionHandling()
 }
