@@ -94,28 +94,28 @@ flowchart LR
   %% Optional: relationships
   p3 -. error threshold & done .- pl3
 
-  %% Clickable links
-  click r1 "./race" "Open race/" _self
-  click m1 "./mem_access_sync" "Open mem_access_sync/" _self
-  click m1a "./mem_access_sync/rw_sync.go" "Open rw_sync.go" _self
-  click m1b "./mem_access_sync/sync.go" "Open sync.go" _self
-  click w1 "./wait_groups" "Open wait_groups/" _self
-  click w1a "./wait_groups/wait_groups.go" "Open wait_groups.go" _self
-  click c1 "./concurrency_revisits/channels_1.go" "Open channels_1.go" _self
-  click c2 "./concurrency_revisits/channel_2.go" "Open channel_2.go" _self
-  click c3 "./concurrency_revisits/selecting.go" "Open selecting.go" _self
-  click c4 "./concurrency_revisits/cond_rev.go" "Open cond_rev.go" _self
-  click c5 "./concurrency_revisits/broadcast_cond.go" "Open broadcast_cond.go" _self
-  click c6 "./concurrency_revisits/polling.go" "Open polling.go" _self
-  click p1 "./patterns/confinement.go" "Open confinement.go" _self
-  click p2 "./patterns/for_select.go" "Open for_select.go" _self
-  click p3 "./patterns/exception_handling.go" "Open exception_handling.go" _self
-  click pl1 "./patterns/pipelines/batch_processing.go" "Open batch_processing.go" _self
-  click pl2 "./patterns/pipelines/stream_processing.go" "Open stream_processing.go" _self
-  click pl3 "./patterns/pipelines/channel_pipelines.go" "Open channel_pipelines.go" _self
-  click pl4 "./patterns/pipelines/repeat_pattern.go" "Open repeat_pattern.go" _self
-  click pl5 "./patterns/pipelines/take_pattern.go" "Open take_pattern.go" _self
-  click pl6 "./patterns/pipelines/repeat_take.go" "Open repeat_take.go" _self
+  %% Clickable links (absolute GitHub URLs; target parameter omitted for GitHub compatibility)
+  click r1 "https://github.com/Bhuwan-web/go-concurrency-patterns/tree/main/race" "Open race/"
+  click m1 "https://github.com/Bhuwan-web/go-concurrency-patterns/tree/main/mem_access_sync" "Open mem_access_sync/"
+  click m1a "https://github.com/Bhuwan-web/go-concurrency-patterns/blob/main/mem_access_sync/rw_sync.go" "Open rw_sync.go"
+  click m1b "https://github.com/Bhuwan-web/go-concurrency-patterns/blob/main/mem_access_sync/sync.go" "Open sync.go"
+  click w1 "https://github.com/Bhuwan-web/go-concurrency-patterns/tree/main/wait_groups" "Open wait_groups/"
+  click w1a "https://github.com/Bhuwan-web/go-concurrency-patterns/blob/main/wait_groups/wait_groups.go" "Open wait_groups.go"
+  click c1 "https://github.com/Bhuwan-web/go-concurrency-patterns/blob/main/concurrency_revisits/channels_1.go" "Open channels_1.go"
+  click c2 "https://github.com/Bhuwan-web/go-concurrency-patterns/blob/main/concurrency_revisits/channel_2.go" "Open channel_2.go"
+  click c3 "https://github.com/Bhuwan-web/go-concurrency-patterns/blob/main/concurrency_revisits/selecting.go" "Open selecting.go"
+  click c4 "https://github.com/Bhuwan-web/go-concurrency-patterns/blob/main/concurrency_revisits/cond_rev.go" "Open cond_rev.go"
+  click c5 "https://github.com/Bhuwan-web/go-concurrency-patterns/blob/main/concurrency_revisits/broadcast_cond.go" "Open broadcast_cond.go"
+  click c6 "https://github.com/Bhuwan-web/go-concurrency-patterns/blob/main/concurrency_revisits/polling.go" "Open polling.go"
+  click p1 "https://github.com/Bhuwan-web/go-concurrency-patterns/blob/main/patterns/confinement.go" "Open confinement.go"
+  click p2 "https://github.com/Bhuwan-web/go-concurrency-patterns/blob/main/patterns/for_select.go" "Open for_select.go"
+  click p3 "https://github.com/Bhuwan-web/go-concurrency-patterns/blob/main/patterns/exception_handling.go" "Open exception_handling.go"
+  click pl1 "https://github.com/Bhuwan-web/go-concurrency-patterns/blob/main/patterns/pipelines/batch_processing.go" "Open batch_processing.go"
+  click pl2 "https://github.com/Bhuwan-web/go-concurrency-patterns/blob/main/patterns/pipelines/stream_processing.go" "Open stream_processing.go"
+  click pl3 "https://github.com/Bhuwan-web/go-concurrency-patterns/blob/main/patterns/pipelines/channel_pipelines.go" "Open channel_pipelines.go"
+  click pl4 "https://github.com/Bhuwan-web/go-concurrency-patterns/blob/main/patterns/pipelines/repeat_pattern.go" "Open repeat_pattern.go"
+  click pl5 "https://github.com/Bhuwan-web/go-concurrency-patterns/blob/main/patterns/pipelines/take_pattern.go" "Open take_pattern.go"
+  click pl6 "https://github.com/Bhuwan-web/go-concurrency-patterns/blob/main/patterns/pipelines/repeat_take.go" "Open repeat_take.go"
 ```
 
 > Tip: If any links aren’t clickable due to GitHub rendering restrictions, use the Quick Links below.
