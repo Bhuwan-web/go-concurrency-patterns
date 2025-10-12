@@ -6,6 +6,8 @@ A comprehensive exploration of Go's concurrency patterns and mechanisms. This pr
 
 This repository serves as a hands-on learning resource for understanding Go's concurrency features. Each module focuses on a specific aspect of concurrent programming, with examples that highlight both the power and potential pitfalls of concurrent code.
 
+Currently practicing with reference to the book "Concurrency in Go" by Katherine Cox-Buday (O'Reilly).
+
 ## 📁 Project Structure
 
 ```
@@ -28,7 +30,15 @@ learn-concurrency/
 │   └── race.go
 ├── patterns/                    # Concurrency patterns and idioms
 │   ├── confinement.go           # Ad hoc vs lexical confinement
-│   └── for_select.go            # for-select loops, default cases, signaling with done
+│   ├── for_select.go            # for-select loops, default cases, signaling with done
+│   ├── exception_handling.go    # Error handling strategy around goroutines
+│   └── pipelines/               # Pipeline-oriented patterns
+│       ├── batch_processing.go  # Batch transform pipeline (adds then multiplies)
+│       ├── stream_processing.go # Stream processing (per-element transform)
+│       ├── channel_pipelines.go # Channel-based pipeline stages (generator/add/multiply)
+│       ├── repeat_pattern.go    # repeat, repeatFn patterns
+│       ├── take_pattern.go      # take pattern
+│       └── repeat_take.go       # Combining repeat + take
 └── README.md                    # This file
 ```
 
@@ -140,6 +150,35 @@ learn-concurrency/
 -   Streams numbers from a goroutine using both ad hoc and lexically confined channels
 -   Shows a spinning for-select with `default`, and a channel-triggered exit with `done`
 
+### 9. Pipeline Patterns (`patterns/pipelines/`)
+
+-   **Purpose**: Explore different ways to process data through stages: batch, streaming, and channel-based pipelines, plus foundational generator utilities.
+-   **Key Concepts**:
+    -   Batch vs stream trade-offs (memory footprint vs call overhead)
+    -   Channel-backed stages with cancellation via a `done` channel
+    -   Reusable patterns: `repeat`, `repeatFn`, and `take`
+
+**What it does:**
+
+-   `DisplayBatchProcessing()`: Applies transformations to an entire slice at once
+-   `DisplayStreamProcessing()`: Transforms one element at a time
+-   `DisplayChannelPipeline()`: Wires generator → add → multiply stages over channels
+-   `DisplayRepeatPattern()`: Repeats a fixed sequence until cancellation
+-   `DisplayRepeatFnPattern()`: Repeats values from a generator function (e.g., crypto/rand)
+-   `DisplayTakePattern()`: Takes the first N values from a stream
+-   `DisplayRepeatTake()`: Combines `repeat` and `take` to get N repeated values
+
+### 10. Exception Handling Around Goroutines (`patterns/exception_handling.go`)
+
+-   **Purpose**: Centralize error handling where you have the most context (caller/main), not inside the goroutine itself.
+-   **Key Concepts**:
+    -   Return errors from worker functions instead of panicking in goroutines
+    -   Enforce error thresholds and cancellation using a `done` channel
+
+**What it does:**
+
+-   `DisplayExceptionHandling()`: Iterates over URLs, collects results, counts errors, and stops early once an error threshold is reached.
+
 ## 🏃‍♂️ Running the Examples
 
 ```bash
@@ -188,6 +227,18 @@ patterns.DisplayAdHocConfinement()
 patterns.DisplayLexicalConfinement()
 patterns.DisplayForSelect()
 patterns.DisplayForSelectWithChannel()
+
+// Exception handling pattern
+patterns.DisplayExceptionHandling()
+
+// Pipeline patterns
+pipelines.DisplayBatchProcessing()
+pipelines.DisplayStreamProcessing()
+pipelines.DisplayChannelPipeline()
+pipelines.DisplayRepeatPattern()
+pipelines.DisplayRepeatFnPattern()
+pipelines.DisplayTakePattern()
+pipelines.DisplayRepeatTake()
 ```
 
 ## 📚 Learning Outcomes
@@ -214,7 +265,7 @@ This project will be incrementally updated with more concurrency patterns:
 -   [ ] **Context Package**: Cancellation and timeouts
 -   [ ] **Worker Pools**: Managing concurrent task execution
 -   [ ] **Atomic Operations**: Lock-free programming
--   [ ] **Pipeline Patterns**: Data processing pipelines
+-   [x] **Pipeline Patterns**: Data processing pipelines
 -   [ ] **Fan-in/Fan-out**: Distributing and collecting work
 -   [ ] **Rate Limiting**: Controlling execution frequency
 -   [ ] **Deadlock Prevention**: Avoiding common pitfalls
@@ -230,6 +281,7 @@ This project will be incrementally updated with more concurrency patterns:
 -   [Go Concurrency Patterns](https://go.dev/blog/pipelines)
 -   [Effective Go - Concurrency](https://go.dev/doc/effective_go#concurrency)
 -   [The Go Memory Model](https://go.dev/ref/mem)
+-   Concurrency in Go by Katherine Cox-Buday (O'Reilly)
 
 ## 🤝 Contributing
 
