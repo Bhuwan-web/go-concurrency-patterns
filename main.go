@@ -29,5 +29,6 @@ func main() {
 	// patterns.DisplayExceptionHandling()
 	// pipelines.DisplayChannelPipeline()
 	// pipelines.DisplayRepeatPattern()
-	pipelines.DisplayRepeatTake()
+	// pipelines.DisplayRepeatTake()
+	pipelines.DisplayRepeatFnPattern()
 }
