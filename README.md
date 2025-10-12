@@ -14,63 +14,66 @@ Below is an at-a-glance, clickable map of the repository. On GitHub, many nodes 
 
 ```mermaid
 flowchart LR
-  root((Go Concurrency\nLearning Project))
+  %% Classes for color grading (friendly to GitHub Mermaid)
+  classDef hub fill:#1f2937,stroke:#0ea5e9,stroke-width:2px,color:#ffffff
+  classDef race fill:#fee2e2,stroke:#ef4444,color:#7f1d1d
+  classDef mem fill:#e0f2fe,stroke:#3b82f6,color:#0c4a6e
+  classDef wait fill:#ede9fe,stroke:#8b5cf6,color:#4c1d95
+  classDef revisits fill:#ffedd5,stroke:#f97316,color:#7c2d12
+  classDef patterns fill:#dcfce7,stroke:#22c55e,color:#14532d
+  classDef pipelines fill:#d1fae5,stroke:#10b981,color:#064e3b
+
+  root[Go Concurrency Learning Project]:::hub
 
   %% Group: Race
-  subgraph G1[Race Conditions]
+  subgraph G1[Race]
     direction TB
-    r1["race (race/)"]
+    r1[race/]
   end
 
   %% Group: Memory Sync
   subgraph G2[Memory Access Sync]
     direction TB
-    m1["mem_access_sync/"]
-    m1a["rw_sync.go"]
-    m1b["sync.go"]
+    m1[mem_access_sync/]
+    m1a[rw_sync.go]
+    m1b[sync.go]
   end
 
   %% Group: WaitGroups
   subgraph G3[Wait Groups]
     direction TB
-    w1["wait_groups/"]
-    w1a["wait_groups.go"]
+    w1[wait_groups/]
+    w1a[wait_groups.go]
   end
 
   %% Group: Concurrency Revisits
   subgraph G4[Concurrency Revisits]
     direction TB
-    c1["channels_1.go"]
-    c2["channel_2.go"]
-    c3["selecting.go"]
-    c4["cond_rev.go"]
-    c5["broadcast_cond.go"]
-    c6["polling.go"]
+    c1[channels_1.go]
+    c2[channel_2.go]
+    c3[selecting.go]
+    c4[cond_rev.go]
+    c5[broadcast_cond.go]
+    c6[polling.go]
   end
 
   %% Group: Patterns
   subgraph G5[Patterns]
     direction TB
-    p1["confinement.go"]
-    p2["for_select.go"]
-    p3["exception_handling.go"]
+    p1[confinement.go]
+    p2[for_select.go]
+    p3[exception_handling.go]
 
     %% Pipelines subgroup
     subgraph G5a[Pipelines]
       direction TB
-      pl1["batch_processing.go"]
-      pl2["stream_processing.go"]
-      pl3["channel_pipelines.go"]
-      pl4["repeat_pattern.go"]
-      pl5["take_pattern.go"]
-      pl6["repeat_take.go"]
+      pl1[batch_processing.go]
+      pl2[stream_processing.go]
+      pl3[channel_pipelines.go]
+      pl4[repeat_pattern.go]
+      pl5[take_pattern.go]
+      pl6[repeat_take.go]
     end
-  end
-
-  %% Group: Race (dedicated)
-  subgraph G6[Race Demo]
-    direction TB
-    rd1["race.go"]
   end
 
   %% Hub connections
@@ -79,15 +82,20 @@ flowchart LR
   root --> G3
   root --> G4
   root --> G5
-  root --> G6
 
-  %% Optional: lightweight relationships
-  G5a --> pl3
+  %% Color grading assignments
+  class r1 race
+  class m1,m1a,m1b mem
+  class w1,w1a wait
+  class c1,c2,c3,c4,c5,c6 revisits
+  class p1,p2,p3 patterns
+  class pl1,pl2,pl3,pl4,pl5,pl6 pipelines
+
+  %% Optional: relationships
   p3 -. error threshold & done .- pl3
 
-  %% Clickable links (GitHub rendering supports links in many cases)
+  %% Clickable links
   click r1 "./race" "Open race/" _self
-  click rd1 "./race/race.go" "Open race.go" _self
   click m1 "./mem_access_sync" "Open mem_access_sync/" _self
   click m1a "./mem_access_sync/rw_sync.go" "Open rw_sync.go" _self
   click m1b "./mem_access_sync/sync.go" "Open sync.go" _self
