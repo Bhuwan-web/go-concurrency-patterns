@@ -1,7 +1,7 @@
 package main
 
 import (
-	"githhub.com/bhuwan-web/learn-concurrency/patterns"
+	"githhub.com/bhuwan-web/learn-concurrency/patterns/pipelines"
 )
 
 // learning go concurrency in detail
@@ -26,5 +26,8 @@ func main() {
 	// patterns.DisplayGoroutineLeak()
 	// patterns.DisplayPreventingLeak()
 	// patterns.DisplayOrChannelPattern()
-	patterns.DisplayExceptionHandling()
+	// patterns.DisplayExceptionHandling()
+	// pipelines.DisplayChannelPipeline()
+	// pipelines.DisplayRepeatPattern()
+	pipelines.DisplayRepeatTake()
 }
