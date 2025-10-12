@@ -128,22 +128,22 @@ flowchart LR
 ```mermaid
 flowchart LR
   classDef stage fill:#eaf7ff,stroke:#66b3ff,stroke-width:1px,color:#003d66
-  classDef chan fill:#fff7e6,stroke:#ffb84d,stroke-width:1px,color:#663d00
   classDef out fill:#e8ffea,stroke:#6bd66b,stroke-width:1px,color:#104010
   classDef cancel fill:#ffe6e6,stroke:#ff6666,stroke-width:1px,color:#660000,stroke-dasharray: 3 3
 
-  subgraph P[Channel-based Pipeline]
+  subgraph P[Channel based Pipeline]
     direction LR
-    A{{generator}}
-    B[addStream(+1)]
-    C[multipleStream(*2)]
-    A -->|int| B -->|int| C --> D[(pipeline out)]
+    A[generator]
+    B[addStream plus1]
+    C[multipleStream times2]
+    D[pipeline out]
+    A -->|int| B -->|int| C -->|int| D
   end
 
   class A,B,C stage
   class D out
 
-  Done((done)):::cancel
+  Done[done]:::cancel
   Done -. cancels .- A
   Done -. cancels .- B
   Done -. cancels .- C
@@ -164,21 +164,21 @@ flowchart LR
   classDef out fill:#e8ffea,stroke:#6bd66b,stroke-width:1px,color:#104010
   classDef cancel fill:#ffe6e6,stroke:#ff6666,stroke-width:1px,color:#660000,stroke-dasharray: 3 3
 
-  subgraph RT[Repeat → Take]
+  subgraph RT[Repeat to Take]
     direction LR
-    R{{repeat(1,2,...)}} --> T[take(N)] --> O[(out)]
+    R[repeat] -- values --> T[take N] --> O[out]
   end
   class R,T stage
   class O out
 
-  subgraph RFn[RepeatFn → Take]
+  subgraph RFn[RepeatFn to Take]
     direction LR
-    RF{{repeatFn(rand)}} --> T2[take(N)] --> O2[(out)]
+    RF[repeatFn rand] -- values --> T2[take N] --> O2[out]
   end
   class RF,T2 stage
   class O2 out
 
-  Done2((done)):::cancel
+  Done2[done]:::cancel
   Done2 -. cancels .- R
   Done2 -. cancels .- T
   Done2 -. cancels .- RF
