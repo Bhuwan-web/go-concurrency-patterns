@@ -30,5 +30,7 @@ func main() {
 	// pipelines.DisplayChannelPipeline()
 	// pipelines.DisplayRepeatPattern()
 	// pipelines.DisplayRepeatTake()
-	pipelines.DisplayRepeatFnPattern()
+	// pipelines.DisplayRepeatFnPattern()
+	// pipelines.DisplayNonFanInPattern() // 237.68 seconds elapsed
+	pipelines.DisplayFanInPattern() // 36.03 seconds elapsed
 }
